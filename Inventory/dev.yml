@@ -1,0 +1,18 @@
+nfs-server 172.31.26.62 ansible_connection=ssh ansible_user=ansible
+web-server1 172.31.26.234 ansible_connection=ssh ansible_user=ansible
+web-server2 172.31.17.49 ansible_connection=ssh ansible_user=ansible
+mysql-server 172.31.29.162 ansible_connection=ssh ansible_user=ansible
+LB-NGINX 172.31.21.158 ansible_connection=ssh ansible_user=ansible
+
+[nfs]
+nfs-server
+
+[webservers]
+web-server1
+web-server2
+
+[db]
+mysql-server
+
+[lb]
+LB-NGINX

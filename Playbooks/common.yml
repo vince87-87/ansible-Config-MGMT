@@ -1,0 +1,33 @@
+---
+- name: update web, nfs and db servers
+  hosts: webservers, nfs, db
+  become: yes
+  become_user: root
+  tasks:
+  - name: ensure wireshark is installed at latest version
+    yum:
+      name: wireshark
+      state: latest
+
+- name: update LB server
+  hosts: lb
+  become: yes
+  become_user: root
+  tasks:
+    - name: ensure wireshark is at the latest version
+      apt:
+        name: wireshark
+        state: latest
+
+- name: create directory if it does not exist
+  hosts: all
+  file:
+    path: /home/testfolder
+    state: directory
+    mode: '0755'
+
+- name: Set timezone
+  hosts: all
+  timezone:
+    name: Asia/Singapore
+    hwclock: local
