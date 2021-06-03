@@ -42,64 +42,100 @@ Create new branch "Development" & the following folder & file structure
 Update your inventory/dev.yml file with this snippet of code:
 
 nfs-server ansible_host=<NFS IP> ansible_user=ansible
+  
 web-server1 ansible_host=<Web server1 ip> ansible_user=ansible
+  
 web-server2 ansible_host=<Web server2 ip> ansible_user=ansible
+  
 mysql-server ansible_host=<DB server ip> ansible_user=ansible
+  
 LB-NGINX ansible_host=<LB IP> ansible_user=ansible
 
 [nfs]
+  
 nfs-server
 
 [webservers]
+  
 web-server1
+  
 web-server2
 
 [db]
+  
 mysql-server
 
 [lb]
+  
 LB-NGINX
 
 # Create common playbook
   
 ---
 - name: update web, nfs and db servers
+  
   hosts: webservers, nfs, db
+  
   become: yes
+  
   tasks:
+  
   - name: ensure wireshark is installed at latest version
+  
     yum:
+  
       name: wireshark
+  
       state: latest
 
 - name: Set time zone & create directory on all servers
+  
   hosts: all
+  
   become: yes
+  
   tasks:
+  
     - name: create testfolder directory if it does not exists
+  
       file:
+  
         path: /home/testfolder
+  
         state: directory
+  
         mode: '0755'
 
     - name: Set timezone
+  
       timezone:
+  
         name: Asia/Singapore
+  
         hwclock: local
 
 - name: update LB server
+  
   hosts: lb
+  
   become: yes
+  
   tasks:
+  
     - name: ensure wireshark is at the latest version
+  
       apt:
+  
         name: wireshark
+  
         state: latest
 
 # Update Git with latest code
 
 git add.
+  
 git commit -m "updated inventory & playbook"
+  
 git push
 
 Create a Pull request (PR) & merge with master
@@ -112,11 +148,14 @@ Create a Pull request (PR) & merge with master
 
 ![image](https://user-images.githubusercontent.com/49937302/120652085-014d5480-c4b2-11eb-9eff-597b4e20a613.png)
   
-#verify that all the files (build artifacts) to /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on Jenkins-Ansible server.
 
 ![image](https://user-images.githubusercontent.com/49937302/120652112-07433580-c4b2-11eb-9991-04ef44f23ddf.png)
 
-# Run ansible 
+#verify that all the files (build artifacts) to /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on Jenkins-Ansible server.
+  
+![image](https://user-images.githubusercontent.com/49937302/120653586-69e90100-c4b3-11eb-91ad-13dd69478e90.png)
+  
+# Run ansible playbook
   
 Verify ansible connection to all server is successful
 
@@ -132,6 +171,4 @@ Verify wireshark is installed , testfolder created & timezone changed
   
 ![image](https://user-images.githubusercontent.com/49937302/120652891-c4ce2880-c4b2-11eb-83a7-fb82e28e894e.png)
   
-  
-Verify wireshark is installed , testfolder created & timezone changed
  
