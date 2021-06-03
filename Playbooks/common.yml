@@ -1,28 +1,16 @@
 ---
 - name: update web, nfs and db servers
-  hosts: webservers, nfs, db
+  hosts: webservers
   become: yes
-  become_user: ansible
   tasks:
   - name: ensure wireshark is installed at latest version
     yum:
       name: wireshark
       state: latest
 
-- name: update LB server
-  hosts: lb
-  become: yes
-  become_user: ansible
-  tasks:
-    - name: ensure wireshark is at the latest version
-      apt:
-        name: wireshark
-        state: latest
-
 - name: Set time zone & create directory on all servers
   hosts: all
   become: yes
-  become_user: ansible
   tasks:
     - name: create testfolder directory if it does not exists
       file:
@@ -34,3 +22,12 @@
       timezone:
         name: Asia/Singapore
         hwclock: local
+
+- name: update LB server
+  hosts: lb
+  become: yes
+  tasks:
+    - name: ensure wireshark is at the latest version
+      apt:
+        name: wireshark
+        state: latest
