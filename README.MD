@@ -102,11 +102,36 @@ git add.
 git commit -m "updated inventory & playbook"
 git push
 
+Create a Pull request (PR) & merge with master
+  
+![image](https://user-images.githubusercontent.com/49937302/120651982-e975d080-c4b1-11eb-9ee5-f4d33c65f2de.png)
+  
+![image](https://user-images.githubusercontent.com/49937302/120652050-f85c8300-c4b1-11eb-88bd-7e9affda1760.png)
+
+![image](https://user-images.githubusercontent.com/49937302/120652067-fdb9cd80-c4b1-11eb-8fb0-53384d7a31cf.png)
+
+![image](https://user-images.githubusercontent.com/49937302/120652085-014d5480-c4b2-11eb-9eff-597b4e20a613.png)
+  
+#verify that all the files (build artifacts) to /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on Jenkins-Ansible server.
+
+![image](https://user-images.githubusercontent.com/49937302/120652112-07433580-c4b2-11eb-9991-04ef44f23ddf.png)
+
+# Run ansible 
+  
+Verify ansible connection to all server is successful
 
 ansible-playbook -i dev.yml /var/lib/jenkins/jobs/ansible/builds/7/archive/Playbooks/common.yml --check -kK
-
+  
+![image](https://user-images.githubusercontent.com/49937302/120652673-951f2080-c4b2-11eb-8bfe-bf048a6480ab.png)
  
 ansible-playbook -i dev.yml /var/lib/jenkins/jobs/ansible/builds/8/archive/Playbooks/common.yml -kK
- 
+
+![image](https://user-images.githubusercontent.com/49937302/120652784-ad8f3b00-c4b2-11eb-9832-bad41893962f.png)
+
+Verify wireshark is installed , testfolder created & timezone changed
+  
+![image](https://user-images.githubusercontent.com/49937302/120652891-c4ce2880-c4b2-11eb-83a7-fb82e28e894e.png)
+  
+  
 Verify wireshark is installed , testfolder created & timezone changed
  
