@@ -1,14 +1,14 @@
 ---
-- name: update web, nfs and db servers
+- name: uninstall wireshark on web, nfs and db servers
   hosts: webservers, nfs, db
   become: yes
   tasks:
-  - name: ensure wireshark is installed at latest version
+  - name: ensure wireshark is uninstalled
     yum:
       name: wireshark
       state: removed
 
-- name: Set time zone & create directory on all servers
+- name: Remove testfolder
   hosts: all
   become: yes
   tasks:
@@ -17,11 +17,14 @@
         path: /home/testfolder
         state: absent
 
-- name: update LB server
+- name: uninstall wireshark
   hosts: lb
   become: yes
   tasks:
-    - name: ensure wireshark is at the latest version
+    - name: ensure wireshark is is uninstalled
       apt:
         name: wireshark
-        state: removed
+        state: absent
+        autoremove: yes
+        purge: yes
+        autoclean: yes
