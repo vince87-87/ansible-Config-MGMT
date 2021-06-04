@@ -1,0 +1,27 @@
+---
+- name: update web, nfs and db servers
+  hosts: webservers, nfs, db
+  become: yes
+  tasks:
+  - name: ensure wireshark is installed at latest version
+    yum:
+      name: wireshark
+      state: removed
+
+- name: Set time zone & create directory on all servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Recursively Remove directory
+      file:
+        path: /home/testfolder
+        state: absent
+
+- name: update LB server
+  hosts: lb
+  become: yes
+  tasks:
+    - name: ensure wireshark is at the latest version
+      apt:
+        name: wireshark
+        state: removed
