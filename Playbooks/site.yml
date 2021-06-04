@@ -1,0 +1,3 @@
+---
+- hosts: all
+- import_playbook: ../Static-assignments/common-del.yml
