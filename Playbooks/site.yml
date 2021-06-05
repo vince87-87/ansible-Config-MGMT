@@ -2,5 +2,5 @@
 - hosts: all
 - import_playbook: ../Static-assignments/common-del.yml
 
-- hosts: uat-webservers
+- hosts: uatwebservers
 - import_playbook: ../static-assignments/uat-webservers.yml
