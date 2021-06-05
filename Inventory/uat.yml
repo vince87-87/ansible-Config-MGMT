@@ -1,0 +1,6 @@
+WEB-UAT ansible_host=172.31.26.234 ansible_user=ansible
+WEB2-UAT ansible_host=172.31.17.49 ansible_user=ansible
+
+[uat-webservers]
+WEB-UAT
+WEB2-UAT
