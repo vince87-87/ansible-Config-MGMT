@@ -23,7 +23,7 @@
 
 - hosts: webservers
 - name: Webserver assignment
-  import_playbook: ../Static-assignments/uat-webservers.yml
+  import_playbook: ../Static-assignments/webservers.yml
 
 - name: Database Assignment
 - hosts: uatdb
