@@ -1,5 +1,5 @@
 ---
-hosts: uatdb
-become: true
-roles: 
-  - ../roles/mysql
+- hosts: uatdb
+  become: true
+  roles: 
+    - ../roles/mysql
