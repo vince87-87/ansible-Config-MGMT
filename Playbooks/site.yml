@@ -9,4 +9,10 @@
 
 - name: Webserver assignment
   hosts: webservers
-    - import_playbook ../static-assignments/webservers.yml
+  tasks:
+   - import_playbook: ../static-assignments/webservers.yml
+
+- name: Database Assignment
+  hosts: uatdb
+  tasks:
+    - import_playbook:  ../static-assignments/database.yml
