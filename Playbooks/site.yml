@@ -16,15 +16,15 @@
 ---
 - hosts: all
 - name:  dynamic variables 
-  import_playbook: ../static-assignments/common.yml 
-  include: ../dynamic-assignments/env-vars.yml
+  import_playbook: ../Static-assignments/common.yml 
+  include: ../Dynamic-assignments/env-vars.yml
   tags:
     - always
 
 - hosts: webservers
 - name: Webserver assignment
-  import_playbook: ../static-assignments/uat-webservers.yml
+  import_playbook: ../Static-assignments/uat-webservers.yml
 
 - name: Database Assignment
 - hosts: uatdb
-  import_playbook:  ../static-assignments/database.yml
+  import_playbook:  ../Static-assignments/database.yml
