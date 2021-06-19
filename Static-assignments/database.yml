@@ -2,4 +2,4 @@
 hosts: uatdb
 become: true
 roles: 
-  - mysql
+  - ../roles/mysql
