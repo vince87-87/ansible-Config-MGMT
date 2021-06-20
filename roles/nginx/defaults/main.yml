@@ -94,5 +94,5 @@ nginx_log_format: |-
   '"$http_user_agent" "$http_x_forwarded_for"'
 
 # load balancer variable
-enable_nginx_lb: false
-load_balancer_is_required: false
+enable_nginx_lb: true
+load_balancer_is_required: true
