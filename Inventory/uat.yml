@@ -1,6 +1,7 @@
 web-uat ansible_host=172.31.23.128 ansible_user=ansible
 web2-uat ansible_host=172.31.35.201 ansible_user=ansible
 db1-uat ansible_host=172.31.47.120 ansible_user=ansible
+lb-uat ansible_host=172.31.26.133 ansible_user=ansible
 
 [uatwebservers]
 web-uat
@@ -8,3 +9,6 @@ web2-uat
 
 [uatdb]
 db1-uat
+
+[uatlb]
+lb-uat
