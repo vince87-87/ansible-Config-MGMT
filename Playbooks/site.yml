@@ -17,5 +17,4 @@
 - hosts: uatlb
 - name: loadbalancer Assignment
   import_playbook:  ../Static-assignments/loadbalancers.yml
-  include: ../Dynamic-assignments/env-vars.yml
   when: load_balancer_is_required
