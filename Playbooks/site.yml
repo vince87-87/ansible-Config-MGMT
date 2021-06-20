@@ -16,5 +16,5 @@
 
 - hosts: uatlb
 - name: loadbalancer Assignment
-  import_playbook:  ../Static-assignments/loadbalancer.yml
+  import_playbook:  ../Static-assignments/loadbalancers.yml
   when: load_balancer_is_required
