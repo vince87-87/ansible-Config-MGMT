@@ -1,18 +1,3 @@
-# ---
-# - name: Include dynamic variables 
-#   hosts: all
-#   tasks:
-#     - import_playbook: ../static-assignments/common.yml 
-#     - include_playbook: ../dynamic-assignments/env-vars.yml
-#   tags:
-#     - always
-
-# - name: Webserver assignment
-#   hosts: webservers
-#   tasks:
-#    - import_playbook: ../static-assignments/webservers.yml
-
-
 ---
 - hosts: all
 - name:  dynamic variables 
@@ -28,3 +13,8 @@
 - hosts: uatdb
 - name: Database Assignment
   import_playbook:  ../Static-assignments/database.yml
+
+- hosts: uatlb
+- name: loadbalancer Assignment
+  import_playbook:  ../Static-assignments/loadbalancer.yml
+  when: load_balancer_is_required
