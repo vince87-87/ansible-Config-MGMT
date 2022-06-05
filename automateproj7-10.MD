@@ -130,7 +130,7 @@ LB-NGINX
   
         state: latest
 
-# Update Git with latest code
+# Update Git push with latest code
 
 git add.
   
