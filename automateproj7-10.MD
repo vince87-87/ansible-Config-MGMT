@@ -69,7 +69,7 @@ mysql-server
   
 LB-NGINX
 
-# Create common playbook
+## Create common playbook
   
 ---
 - name: update web, nfs and db servers
