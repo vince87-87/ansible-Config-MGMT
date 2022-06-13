@@ -1,0 +1,30 @@
+---
+- name: update web, nfs and db servers
+  hosts: webservers, nfs, db
+  remote_user: ansible
+  become: yes
+  tasks:
+  -
+    name: "ensure wireshark is installed at latest version"
+    yum:
+      name: wireshark
+      state: latest
+  -
+    name: "create test folder"
+    file:
+      path: /home/testfolder
+      state: directory
+      mode: '0755'
+  -
+    name: "verify directory"
+    command: ls /home/testfolder
+- name: update nginx lb server
+  hosts: LB-NGINX
+  remote_user: ansible
+  become: yes
+  tasks:
+  -
+    name: "ensure wireshark is installed at latest version"
+    apt:
+      name: wireshark
+      state: latest

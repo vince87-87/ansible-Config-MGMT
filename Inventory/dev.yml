@@ -1,36 +1,36 @@
-# nfs-server ansible_host=172.31.26.62 ansible_user=ansible
-# web-server1 ansible_host=172.31.26.234 ansible_user=ansible
-# web-server2 ansible_host=172.31.17.49 ansible_user=ansible
-# mysql-server ansible_host=172.31.29.162 ansible_user=ansible
-# LB-NGINX ansible_host=172.31.21.158 ansible_user=ansible
+nfs-server ansible_host=172.31.16.238 ansible_user=ansible
+web-server1 ansible_host=172.31.28.168 ansible_user=ansible
+web-server2 ansible_host=172.31.20.82 ansible_user=ansible
+mysql-server ansible_host=172.31.27.237 ansible_user=ansible
+LB-NGINX ansible_host=172.31.25.105 ansible_user=ansible
 
-# [nfs]
-# nfs-server
+[nfs]
+nfs-server
 
-# [webservers]
-# web-server1
-# web-server2
-
-# [db]
-# mysql-server
-
-# [lb]
-# LB-NGINX
-
-tooling ansible_host=<ip-address ansible_user=ansible
-
-[tooling]
-<Tooling-Web-Server-Private-IP-Address>
-
-[todo]
-<Todo-Web-Server-Private-IP-Address>
-
-[nginx]
-<Nginx-Private-IP-Address>
-
-[db:vars]
-ansible_user=ubuntu
-ansible_python_interpreter=/usr/bin/python
+[webservers]
+web-server1
+web-server2
 
 [db]
-<DB-Server-Private-IP-Address>
+mysql-server
+
+[lb]
+LB-NGINX
+
+# tooling ansible_host=<ip-address ansible_user=ansible
+
+# [tooling]
+# <Tooling-Web-Server-Private-IP-Address>
+
+# [todo]
+# <Todo-Web-Server-Private-IP-Address>
+
+# [nginx]
+# <Nginx-Private-IP-Address>
+
+# [db:vars]
+# ansible_user=ubuntu
+# ansible_python_interpreter=/usr/bin/python
+
+# [db]
+# <DB-Server-Private-IP-Address>
