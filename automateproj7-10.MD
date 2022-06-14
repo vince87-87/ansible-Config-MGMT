@@ -162,12 +162,17 @@ apt-get install sshpass
 # ensure host host key checking is disable
 
 default ansible.cfg is located at /etc/ansible/ansible.cfg
+
 if not found it will take the default configuration
+
 you can check the current config file under: ansible --version
+
 need to create if there is not ansible.cfg
 
 sudo mkdir /etc/ansible
+
 sudo curl -o /etc/ansible/ansible.cfg https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg
+
 sudo curl -o /etc/ansible/hosts https://raw.githubusercontent.com/ansible/ansible/devel/examples/hosts
 
 verify the configuration using the below command:
