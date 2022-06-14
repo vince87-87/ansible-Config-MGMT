@@ -154,16 +154,41 @@ Create a Pull request (PR) & merge with master
 #verify that all the files (build artifacts) to /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on Jenkins-Ansible server.
   
 ![image](https://user-images.githubusercontent.com/49937302/120653586-69e90100-c4b3-11eb-91ad-13dd69478e90.png)
-  
+
+# Ensure ssh-pass is installed on ansible controller to use ssh with password
+
+apt-get install sshpass
+
+# ensure host host key checking is disable
+
+default ansible.cfg is located at /etc/ansible/ansible.cfg
+if not found it will take the default configuration
+you can check the current config file under: ansible --version
+need to create if there is not ansible.cfg
+
+sudo mkdir /etc/ansible
+sudo curl -o /etc/ansible/ansible.cfg https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg
+sudo curl -o /etc/ansible/hosts https://raw.githubusercontent.com/ansible/ansible/devel/examples/hosts
+
+verify the configuration using the below command:
+
+ansible-config dump
+
+# sample ansible.cfg
+
+https://github.com/ansible/ansible/blob/stable-2.10/examples/ansible.cfg
+
+
 # Run ansible playbook
   
 Verify ansible connection to all server is successful
+-k ask for ssh connection password -K ask for root password 
 
-ansible-playbook -i dev.yml /var/lib/jenkins/jobs/ansible/builds/7/archive/Playbooks/common.yml --check -kK
+ansible-playbook -i dev.yml /var/lib/jenkins/jobs/[project-name]/builds/[build_number]/archive/Playbooks/common.yml --check -kK
   
 ![image](https://user-images.githubusercontent.com/49937302/120652673-951f2080-c4b2-11eb-8bfe-bf048a6480ab.png)
  
-ansible-playbook -i dev.yml /var/lib/jenkins/jobs/ansible/builds/8/archive/Playbooks/common.yml -kK
+ansible-playbook -i dev.yml /var/lib/jenkins/jobs/[project-name]/builds/[build_number]/archive/Playbooks/common.yml -kK
 
 ![image](https://user-images.githubusercontent.com/49937302/120652784-ad8f3b00-c4b2-11eb-9832-bad41893962f.png)
 
