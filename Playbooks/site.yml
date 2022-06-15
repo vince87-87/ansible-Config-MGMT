@@ -1,20 +1,20 @@
 ---
 - hosts: all
 - name:  dynamic variables 
-  import_playbook: ../Static-assignments/common.yml 
-  include: ../Dynamic-assignments/env-vars.yml
-  tags:
-    - always
+  import_playbook: ../Static-assignments/common-del.yml 
+  # include: ../Dynamic-assignments/env-vars.yml
+#   tags:
+#     - always
 
-- hosts: webservers
-- name: Webserver assignment
-  import_playbook: ../Static-assignments/webservers.yml
+# - hosts: webservers
+# - name: Webserver assignment
+#   import_playbook: ../Static-assignments/webservers.yml
 
-- hosts: uatdb
-- name: Database Assignment
-  import_playbook:  ../Static-assignments/database.yml
+# - hosts: uatdb
+# - name: Database Assignment
+#   import_playbook:  ../Static-assignments/database.yml
 
-- hosts: uatlb
-- name: loadbalancer Assignment
-  import_playbook:  ../Static-assignments/loadbalancers.yml
-  when: load_balancer_is_required
+# - hosts: uatlb
+# - name: loadbalancer Assignment
+#   import_playbook:  ../Static-assignments/loadbalancers.yml
+#   when: load_balancer_is_required
