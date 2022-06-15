@@ -6,9 +6,9 @@
 #   tags:
 #     - always
 
-# - hosts: webservers
-# - name: Webserver assignment
-#   import_playbook: ../Static-assignments/webservers.yml
+- hosts: uatwebservers
+- name: Webserver assignment
+  import_playbook: ../Static-assignments/webservers.yml
 
 # - hosts: uatdb
 # - name: Database Assignment
