@@ -26,13 +26,29 @@ Test running job from ansible Verify build successfully completed
 
 ![image](https://user-images.githubusercontent.com/49937302/120910203-75088080-c6af-11eb-8fbf-3a693993f466.png)
 
+# Create new branch
+
 Create new branch: “refactor”
+
+# Create static assignment folder
+
+The static-assignments folder is where all other children playbooks will be stored. This is merely for easy 
+
+organization of your work.
 
 Create Static-assignments folder , under static-assignment, create common-del.yml
 
 Move Playbooks/common.yml to Static-assignments/common.yml
 
-Create site.yml
+# Create site.yml
+
+Within playbooks folder, create a new file and name it site.yml – This file will now be considered as an entry point
+
+into the entire infrastructure configuration. Other playbooks will be included here as a reference. In other words,
+
+site.yml will become a parent to all other playbooks that will be developed. Including common.yml that you created 
+
+previously. 
 
 Below is the folder/file layout
 
@@ -43,10 +59,8 @@ Site.yml
 ---
 
 - hosts: all
-- 
-- import_playbook: ../Static-assignments/common-del.yml
 
-Common-del.yml
+- import_playbook: ../static-assignments/common.yml
 
 ---
 
