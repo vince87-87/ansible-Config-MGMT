@@ -19,6 +19,14 @@ pipeline {
       }
     }
 
+    stage('Test2') {
+      steps {
+        script {
+          sh 'echo "Testing Stage2"'
+        }
+      }
+    }
+
     stage('Package') {
       steps {
         script {
