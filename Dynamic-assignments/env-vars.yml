@@ -12,6 +12,6 @@
             - uat.yml
           skip: true
           paths:
-            - "{{ playbook_dir }}/../env-vars"
+            - "{{ playbook_dir }}/../env-vars" # path of variable -> /Users/vincent/Documents/Devops/bootcamps/ansible-Config-MGMT/Playbooks/../env-vars
       tags:
         - always

@@ -1,0 +1,7 @@
+---
+- name: Ansible debug module in action
+  hosts: localhost
+  tasks:
+          - name: Print a simple statement
+            debug:
+              msg: "{{ playbook_dir }}/../env-vars"

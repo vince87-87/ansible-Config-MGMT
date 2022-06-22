@@ -2,7 +2,18 @@
 
 # Introducing Dynamic Assignment Into Our structure
 
-Create a new folder, name it dynamic-assignments. Then inside this folder, create a new file and name it env-vars.yml. We will instruct site.yml to include this playbook later.
+The module that enables dynamic assignments is include.
+
+Hence,
+
+import = Static
+
+include = Dynamic
+
+Create a new folder, name it dynamic-assignments. Then inside this folder, create a new file and name it env-vars.yml.
+
+We will instruct site.yml to include this playbook later.
+
 This will be the file structure
     
 Since we will be using the same Ansible to configure multiple environments, and each of these environments will have certain unique attributes, such as servername, ip-address etc., we will need a way to set values to variables per specific environment.
